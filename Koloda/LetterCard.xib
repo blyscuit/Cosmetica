@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Light.ttf">
+            <string>Quicksand-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomCardView" customModule="Koloda_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dce-yE-aDB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wl3-7L-F9u">
+                    <rect key="frame" x="0.0" y="320" width="375" height="80"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Goal Matched Deck empty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Ti-9q-22z">
+                    <rect key="frame" x="8" y="0.0" width="359" height="204"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="204" id="Qpe-Q7-qqZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Quicksand-Light" family="Quicksand" pointSize="200"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Draw 2 Discard 3 &gt;&gt;" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="IyV-RJ-bGW">
+                    <rect key="frame" x="193" y="242" width="174" height="95"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="95" id="wni-7u-aZu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Quicksand-Light" family="Quicksand" pointSize="30"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIJ-5c-d4K">
+                    <rect key="frame" x="0.0" y="334" width="375" height="80"/>
+                    <fontDescription key="fontDescription" name="Quicksand-Light" family="Quicksand" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;&lt; Discard 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="SNR-Xb-6Fa">
+                    <rect key="frame" x="8" y="260" width="177" height="95"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="95" id="9C8-cE-TGG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Quicksand-Light" family="Quicksand" pointSize="30"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SNR-Xb-6Fa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6hi-Fb-0Z9"/>
+                <constraint firstItem="SNR-Xb-6Fa" firstAttribute="width" secondItem="IyV-RJ-bGW" secondAttribute="width" constant="3" id="CDB-OJ-7rD"/>
+                <constraint firstItem="PIJ-5c-d4K" firstAttribute="centerX" secondItem="Wl3-7L-F9u" secondAttribute="centerX" id="Cqh-5z-KD1"/>
+                <constraint firstItem="1Ti-9q-22z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="D5w-we-z1q"/>
+                <constraint firstItem="Wl3-7L-F9u" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FQo-z3-tIV"/>
+                <constraint firstItem="dce-yE-aDB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JzX-19-HQL"/>
+                <constraint firstAttribute="trailing" secondItem="IyV-RJ-bGW" secondAttribute="trailing" constant="8" id="O6Z-UN-Iap"/>
+                <constraint firstAttribute="bottom" secondItem="Wl3-7L-F9u" secondAttribute="bottom" id="Peu-Zv-mYZ"/>
+                <constraint firstItem="dce-yE-aDB" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="QfZ-42-JkL"/>
+                <constraint firstAttribute="bottom" secondItem="SNR-Xb-6Fa" secondAttribute="bottom" constant="45" id="cnI-3g-6F1"/>
+                <constraint firstAttribute="bottom" secondItem="IyV-RJ-bGW" secondAttribute="bottom" constant="63" id="h13-q8-8BQ"/>
+                <constraint firstItem="dce-yE-aDB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="l4l-Ci-BOd"/>
+                <constraint firstItem="Wl3-7L-F9u" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="pBi-no-uYc"/>
+                <constraint firstAttribute="trailing" secondItem="1Ti-9q-22z" secondAttribute="trailing" constant="8" id="qWV-ve-o3H"/>
+                <constraint firstItem="PIJ-5c-d4K" firstAttribute="centerY" secondItem="Wl3-7L-F9u" secondAttribute="centerY" constant="14" id="sqv-Em-Stx"/>
+                <constraint firstItem="Wl3-7L-F9u" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="uYM-rw-JLR"/>
+                <constraint firstItem="PIJ-5c-d4K" firstAttribute="height" secondItem="Wl3-7L-F9u" secondAttribute="height" id="vT6-LM-I2k"/>
+                <constraint firstItem="PIJ-5c-d4K" firstAttribute="width" secondItem="Wl3-7L-F9u" secondAttribute="width" id="wow-et-BRH"/>
+                <constraint firstItem="dce-yE-aDB" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="xxY-c0-XOn"/>
+                <constraint firstItem="IyV-RJ-bGW" firstAttribute="leading" secondItem="SNR-Xb-6Fa" secondAttribute="trailing" constant="8" id="zPg-Qa-dfu"/>
+                <constraint firstItem="1Ti-9q-22z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zpl-G2-2qt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="label" destination="1Ti-9q-22z" id="Bsd-SK-rcc"/>
+                <outlet property="mainImage" destination="dce-yE-aDB" id="Efk-AF-agy"/>
+                <outlet property="subImage" destination="Wl3-7L-F9u" id="6WL-q3-O9S"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="53"/>
+        </view>
+    </objects>
+</document>
