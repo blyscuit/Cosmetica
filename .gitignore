@@ -28,3 +28,7 @@ pkg/*
 
 Pods
 Podfile.lock
+
+*.p12
+*.cer
+*.certSigningRequest
