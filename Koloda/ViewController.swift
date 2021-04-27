@@ -22,6 +22,8 @@ import UIKit
 import Koloda
 import SpriteKit
 import GoogleMobileAds
+import Spring
+import FirebaseRemoteConfig
 
 private let kolodaCountOfVisibleCards = 3
 private let kolodaAlphaValueSemiTransparent: CGFloat = 0.9
@@ -68,6 +70,8 @@ class ViewController: UIViewController {
     let tutorialArray = ["Tutorial0","Tutorial1","Tutorial2","Tutorial3"]
 	
 	var interstitial: GADInterstitial!
+
+    var shouldShowAds = false
 	
     enum GameState: Int {
         case playing, shuffling, scoreViewing, welcoming, tutorial
@@ -86,7 +90,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+
+        getRemoteConfigure()
 		
 		print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion() + ",,,")
 		interstitial = createAndLoadInterstitial()
@@ -138,7 +143,7 @@ class ViewController: UIViewController {
 		let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(decreaseBirthRate), userInfo: nil, repeats: true)
     }
 	
-	func decreaseBirthRate() {
+    @objc func decreaseBirthRate() {
 		if particle2.particleBirthRate <= 0 && particle3.particleBirthRate <= 0 {
 			return
 		}
@@ -161,7 +166,7 @@ class ViewController: UIViewController {
 		if let highscore = userDefaults.value(forKey: "highscore") as? Int {
             // do something here when a highscore exists
             self.hiScore = highscore
-			if interstitial.isReady {
+			if shouldShowAds && interstitial.isReady {
 				interstitial.present(fromRootViewController: self)
 			} else {
 				print("Ad wasn't ready")
@@ -214,7 +219,7 @@ class ViewController: UIViewController {
     func delayedCardSelect2() {
         let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(repeatDekayedCardSelect2), userInfo: nil, repeats: true)
     }
-    func repeatDekayedCardSelect2(timer: Timer) {
+    @objc func repeatDekayedCardSelect2(timer: Timer) {
         if gameState != .playing {
             timer.invalidate()
             return
@@ -354,10 +359,10 @@ class ViewController: UIViewController {
         incrementText(view: keepLabel, from: keepInt, to: game.shufflingDeck.cards.count)
 	}
     
-    func delayedCardSelect() {
+    @objc func delayedCardSelect() {
         timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(repeatDekayedCardSelect), userInfo: nil, repeats: true)
     }
-    func repeatDekayedCardSelect() {
+    @objc func repeatDekayedCardSelect() {
         if game.cardsToPlay <= 0 {
             self.view.isUserInteractionEnabled = true
             timer.invalidate()
@@ -414,7 +419,7 @@ class ViewController: UIViewController {
 		scoreTimer = Timer.scheduledTimer(timeInterval: time, target: self, selector: #selector(animateScore), userInfo: ["view" : view , "to" : to, "from" : from, "text": text], repeats: false)
 	}
 	
-    func animateText(timer2: Timer) {
+    @objc func animateText(timer2: Timer) {
         if let dic = timer2.userInfo as? Dictionary<String, AnyObject> {
             guard let view = dic["view"] as? UILabel else {
                 timer2.invalidate()
@@ -452,7 +457,7 @@ class ViewController: UIViewController {
     }
 	
 	
-	func animateScore(timer2: Timer) {
+    @objc func animateScore(timer2: Timer) {
 		if let dic = timer2.userInfo as? Dictionary<String, AnyObject> {
 			guard let view = dic["view"] as? UILabel else {
 				timer2.invalidate()
@@ -506,10 +511,12 @@ class ViewController: UIViewController {
     }
     
     func goalMoprhing(view:Springable) {
-        view.animation = "pop"
-        view.duration = 1.0
-        view.curve = "easeInOut"
-        view.animate()
+        try? {
+            view.animation = "pop"
+            view.duration = 1.0
+            view.curve = "easeInOut"
+            view.animate()
+        }
     }
 	func createAndLoadInterstitial() -> GADInterstitial {
         var interstitial = GADInterstitial(adUnitID: "ca-app-pub-8165662050219478/9891912143")
@@ -517,11 +524,29 @@ class ViewController: UIViewController {
 		let request = GADRequest()
 		// Request test ads on devices you specify. Your test device ID is printed to the console when
 		// an ad request is made.
-		request.testDevices = [ kGADSimulatorID ]
+//		request.testDevices = [ kGADSimulatorID ]
 		interstitial.load(request)
 //		interstitial.load(GADRequest())
 		return interstitial
 	}
+
+    func getRemoteConfigure() {
+        let remoteConfig = RemoteConfig.remoteConfig()
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        remoteConfig.configSettings = settings
+        remoteConfig.fetch() { (status, error) -> Void in
+          if status == .success {
+            print("Config fetched!")
+            self.shouldShowAds = remoteConfig.configValue(forKey: "show_ads").stringValue == "true"
+            remoteConfig.activate() { (changed, error) in
+            }
+          } else {
+            print("Config not fetched")
+            print("Error: \(error?.localizedDescription ?? "No error available.")")
+          }
+        }
+    }
 }
 // MARK: GameDelegate
 extension ViewController: GameDelegate {
@@ -979,7 +1004,7 @@ extension ViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
 
-        guard let box: UIView = cell?.viewWithTag(11), let label: UILabel = cell?.viewWithTag(12) as! UILabel else {
+        guard let box = cell?.viewWithTag(11), let label = cell?.viewWithTag(12) as? UILabel else {
             return cell!
         }
         box.layer.cornerRadius = 6
@@ -1041,7 +1066,7 @@ extension UIColor {
 extension Collection where Indices.Iterator.Element == Index {
     
     /// Returns the element at the specified index iff it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Generator.Element? {
+    subscript (safe index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }

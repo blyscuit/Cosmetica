@@ -1,10 +1,11 @@
-source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'Koloda_Example' do
-  pod "Koloda", :path => "../"
+target 'Cosmetica' do
+  pod "Koloda"
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'Firebase/RemoteConfig'
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift5'
 end
 
 post_install do |installer|

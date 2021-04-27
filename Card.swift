@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public enum Color: Int {
+public enum Color: Int, CaseIterable {
 	case green = 0, yellow, blue, red, black
 }
 class Card {

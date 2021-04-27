@@ -327,7 +327,7 @@ class DrawDeck: Deck {
 class DiscardDeck: Deck {
     func arrayOfHistory() -> [(Color, Int)] {
         var dic: [Color:Int] = [:]
-        for color in iterateEnum(Color) {
+        for color in iterateEnum(Color.self) {
             dic[color] = 0
         }
         for c in cards {

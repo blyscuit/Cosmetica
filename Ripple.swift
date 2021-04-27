@@ -139,13 +139,13 @@ open class Ripple: NSObject {
     animationGroup.delegate = self
     animationGroup.timingFunction = CAMediaTimingFunction(controlPoints: 0.22, 0.54, 0.2, 0.47)
     animationGroup.isRemovedOnCompletion = false
-    animationGroup.fillMode = kCAFillModeForwards
+    animationGroup.fillMode = CAMediaTimingFillMode.forwards
 
     ripples.append(ripple)
     ripple.layer.add(animationGroup, forKey: "ripple")
   }
   
-  func timerDidFire() {
+    @objc func timerDidFire() {
     activate()
   }
 }
