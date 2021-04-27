@@ -19,6 +19,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "app-icon@58x58-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
@@ -30,11 +31,13 @@
       "size" : "29x29"
     },
     {
+      "filename" : "app-icon@80x80-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "app-icon@120x120-2.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
@@ -46,21 +49,25 @@
       "size" : "60x60"
     },
     {
+      "filename" : "app-icon@120x120-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
+      "filename" : "app-icon@22x22 copy.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
+      "filename" : "app-icon@40x40-2.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "app-icon@29x29-1.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
@@ -72,6 +79,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "app-icon@40x40-1.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
@@ -89,6 +97,7 @@
       "size" : "50x50"
     },
     {
+      "filename" : "app-icon@120x120 copy.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "50x50"
@@ -112,6 +121,7 @@
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "app-icon@1x copy-1.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
@@ -168,18 +178,16 @@
       "size" : "256x256"
     },
     {
+      "filename" : "app-icon@1x.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
+      "filename" : "app-icon@1x copy.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
-    },
-    {
-      "filename" : "app-icon@1x.png",
-      "unassigned" : true
     },
     {
       "filename" : "app-icon@22x22.png",
