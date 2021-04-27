@@ -360,7 +360,7 @@ class ViewController: UIViewController {
 	}
     
     @objc func delayedCardSelect() {
-        timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(repeatDekayedCardSelect), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(repeatDekayedCardSelect), userInfo: nil, repeats: true)
     }
     @objc func repeatDekayedCardSelect() {
         if game.cardsToPlay <= 0 {
@@ -888,7 +888,7 @@ extension ViewController: KolodaViewDelegate {
     }
     func koloda(_ koloda: KolodaView, didShowCardAt index: Int) {
         if game.cardsToPlay > 0 && index == 0 {
-            timer = Timer.scheduledTimer(timeInterval: 0.9, target: self, selector: #selector(delayedCardSelect), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(delayedCardSelect), userInfo: nil, repeats: false)
 		} else if game.cardsToPlay <= 0 {
 			self.view.isUserInteractionEnabled = true
 		}
