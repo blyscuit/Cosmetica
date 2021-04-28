@@ -210,7 +210,7 @@ class ViewController: UIViewController {
         handDeck.append(contentsOf: game.playDeck.cards)
         resetViews()
         updateDeckView()
-        hapticImpact(5)
+        hapticImpact(6)
 //        delayedCardSelect2()
     }
     
@@ -563,6 +563,7 @@ extension ViewController: GameDelegate {
         handDeck = []
         handDeck.append(contentsOf: game.playDeck.cards)
         kolodaView.resetCurrentCardIndex()
+        hapticImpact(number)
     }
     
     func gameDidDraw(number: Int) {
@@ -572,6 +573,7 @@ extension ViewController: GameDelegate {
         animateHistoryIn()
         ripple(CGPoint(x: keepLabel.frame.origin.x+keepLabel.frame.size.width  / 2,
                        y: keepLabel.frame.origin.y+keepLabel.frame.size.height  / 2), view: view, times: 1, duration: 1.1, size: 4, multiplier: 16, divider: 2.2, color: UIColor.greyAluminium(), border: 1.85)
+        hapticImpact(1)
     }
     
     func gameDidPlayCard(index: Int) {
@@ -653,6 +655,9 @@ extension ViewController: GameDelegate {
                            y: goal4Color.frame.origin.y+goal4Color.frame.size.height  / 2), view: goal4Color.superview!, times: 2, duration: 1.7, size: 4, multiplier: 21, divider: 2.2, color: goal4Color.backgroundColor!, border: 1.85)
         }
         hapticSuccess()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.hapticSuccess()
+        }
     }
     func gameDidGameOver(score: Int) {
         if gameState != .playing && gameState != .shuffling {
@@ -687,6 +692,7 @@ extension ViewController: GameDelegate {
             updateDeckView()
             turnClock()
             resetViews()
+            hapticImpact(min(game.playDeck.cards.count, 5))
         } else {
             gameState = .shuffling
             kolodaView.resetCurrentCardIndex()
@@ -716,7 +722,7 @@ extension ViewController: GameDelegate {
                                    y: match3Color.frame.origin.y+match3Color.frame.size.height  / 2), view: view, times: 1, duration: 1.1, size: 4, multiplier: 21, divider: 2.2, color: match3Color.backgroundColor!, border: 1.85)
                 }
         }
-        hapticImpact(1)
+        hapticImpact(2)
     }
     func gameDidNewTarget(target: [Color: Int], currentTarget: [Color: Int]) {
         if gameState != .playing {
@@ -1109,8 +1115,10 @@ extension ViewController {
             if #available(iOS 13, *) {
                 impact = UIImpactFeedbackGenerator(style: .rigid)
             }
-            for _ in 0..<times {
-                impact.impactOccurred()
+            for i in 0..<times {
+                DispatchQueue.main.asyncAfter(deadline: .now() + (Double(i) * 0.1)) {
+                    impact.impactOccurred()
+                }
             }
         }
     }
