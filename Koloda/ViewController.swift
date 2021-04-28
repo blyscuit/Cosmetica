@@ -210,6 +210,7 @@ class ViewController: UIViewController {
         handDeck.append(contentsOf: game.playDeck.cards)
         resetViews()
         updateDeckView()
+        hapticImpact(5)
 //        delayedCardSelect2()
     }
     
@@ -651,6 +652,7 @@ extension ViewController: GameDelegate {
             ripple(CGPoint(x: goal4Color.frame.origin.x+goal4Color.frame.size.width  / 2,
                            y: goal4Color.frame.origin.y+goal4Color.frame.size.height  / 2), view: goal4Color.superview!, times: 2, duration: 1.7, size: 4, multiplier: 21, divider: 2.2, color: goal4Color.backgroundColor!, border: 1.85)
         }
+        hapticSuccess()
     }
     func gameDidGameOver(score: Int) {
         if gameState != .playing && gameState != .shuffling {
@@ -664,6 +666,7 @@ extension ViewController: GameDelegate {
         gameState = .scoreViewing
         incrementText(view: scoreLabel, from: self.score, to: score, text: "Score : ")
         kolodaView.resetCurrentCardIndex()
+        hapticWarning()
     }
     func gameDidScoreChange(score: Int) {
         if gameState != .playing {
@@ -687,6 +690,7 @@ extension ViewController: GameDelegate {
         } else {
             gameState = .shuffling
             kolodaView.resetCurrentCardIndex()
+            hapticWarning()
         }
     }
     func gameDidMatch() {
@@ -712,6 +716,7 @@ extension ViewController: GameDelegate {
                                    y: match3Color.frame.origin.y+match3Color.frame.size.height  / 2), view: view, times: 1, duration: 1.1, size: 4, multiplier: 21, divider: 2.2, color: match3Color.backgroundColor!, border: 1.85)
                 }
         }
+        hapticImpact(1)
     }
     func gameDidNewTarget(target: [Color: Int], currentTarget: [Color: Int]) {
         if gameState != .playing {
@@ -1093,5 +1098,34 @@ extension UIView {
             rotateAnimation.delegate = delegate
         }
         self.layer.add(rotateAnimation, forKey: nil)
+    }
+}
+
+extension ViewController {
+
+    func hapticImpact(_ times: Int) {
+        if #available(iOS 10.0, *) {
+            var impact = UIImpactFeedbackGenerator(style: .light)
+            if #available(iOS 13, *) {
+                impact = UIImpactFeedbackGenerator(style: .rigid)
+            }
+            for _ in 0..<times {
+                impact.impactOccurred()
+            }
+        }
+    }
+
+    func hapticSuccess() {
+        if #available(iOS 10.0, *) {
+            let feedbackGenerator = UINotificationFeedbackGenerator()
+            feedbackGenerator.notificationOccurred(.success)
+        }
+    }
+
+    func hapticWarning() {
+        if #available(iOS 10.0, *) {
+            let feedbackGenerator = UINotificationFeedbackGenerator()
+            feedbackGenerator.notificationOccurred(.warning)
+        }
     }
 }
