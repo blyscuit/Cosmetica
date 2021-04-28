@@ -19,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>210328003</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-8165662050219478~6938445749</string>
 	<key>LSRequiresIPhoneOS</key>

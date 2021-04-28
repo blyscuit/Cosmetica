@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,13 +14,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjT-Ie-wax">
-                    <rect key="frame" x="18" y="141" width="339" height="383"/>
+                    <rect key="frame" x="18" y="141" width="339" height="382"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cover1" translatesAutoresizingMaskIntoConstraints="NO" id="oue-em-4zM">
-                            <rect key="frame" x="9" y="23" width="320" height="364"/>
+                            <rect key="frame" x="9.5" y="23" width="320" height="363"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cover0" translatesAutoresizingMaskIntoConstraints="NO" id="wdo-HF-0yA">
-                            <rect key="frame" x="0.0" y="0.0" width="339" height="383"/>
+                            <rect key="frame" x="17" y="0.0" width="305" height="382"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="7JH-Rc-1wX"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,7 +34,7 @@
                         <constraint firstItem="oue-em-4zM" firstAttribute="width" secondItem="mjT-Ie-wax" secondAttribute="width" constant="-19" id="gQl-bY-Dmv"/>
                         <constraint firstItem="wdo-HF-0yA" firstAttribute="height" secondItem="mjT-Ie-wax" secondAttribute="height" id="hBP-t4-Xsu"/>
                         <constraint firstItem="wdo-HF-0yA" firstAttribute="centerY" secondItem="mjT-Ie-wax" secondAttribute="centerY" id="kGZ-en-mWS"/>
-                        <constraint firstItem="wdo-HF-0yA" firstAttribute="width" secondItem="mjT-Ie-wax" secondAttribute="width" id="myb-3a-OdL"/>
+                        <constraint firstItem="wdo-HF-0yA" firstAttribute="width" secondItem="mjT-Ie-wax" secondAttribute="width" multiplier="0.9" priority="750" id="myb-3a-OdL"/>
                         <constraint firstItem="oue-em-4zM" firstAttribute="centerX" secondItem="mjT-Ie-wax" secondAttribute="centerX" id="oVL-Cr-L4O"/>
                         <constraint firstItem="wdo-HF-0yA" firstAttribute="centerX" secondItem="mjT-Ie-wax" secondAttribute="centerX" id="s6K-g2-Tei"/>
                     </constraints>
@@ -47,7 +47,7 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logodark" translatesAutoresizingMaskIntoConstraints="NO" id="tFT-5C-855">
-                    <rect key="frame" x="96" y="55" width="183" height="98"/>
+                    <rect key="frame" x="96" y="55" width="183" height="97.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="tFT-5C-855" secondAttribute="height" multiplier="15:8" id="KK9-uh-eDD"/>
                     </constraints>
