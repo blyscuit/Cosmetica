@@ -2,9 +2,6 @@ use_frameworks!
 
 target 'Cosmetica' do
   pod "Koloda"
-  pod 'Firebase/Core'
-  pod 'Firebase/AdMob'
-  pod 'Firebase/RemoteConfig'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift5'
 end
 

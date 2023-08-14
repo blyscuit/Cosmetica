@@ -21,9 +21,7 @@
 import UIKit
 import Koloda
 import SpriteKit
-import GoogleMobileAds
 import Spring
-import FirebaseRemoteConfig
 
 private let kolodaCountOfVisibleCards = 3
 private let kolodaAlphaValueSemiTransparent: CGFloat = 0.9
@@ -69,7 +67,7 @@ class ViewController: UIViewController {
     var particle3: SKEmitterNode!
     let tutorialArray = ["Tutorial0","Tutorial1","Tutorial2","Tutorial3"]
 	
-	var interstitial: GADInterstitial!
+//	var interstitial: GADInterstitial!
 
     var shouldShowAds = false
 	
@@ -91,10 +89,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getRemoteConfigure()
+//        getRemoteConfigure()
 		
-		print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion() + ",,,")
-		interstitial = createAndLoadInterstitial()
+//		print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion() + ",,,")
+//		interstitial = createAndLoadInterstitial()
 		
 		kolodaView.alphaValueSemiTransparent = kolodaAlphaValueSemiTransparent
 //		kolodaView.alphaValueTransparent = 0.01
@@ -166,11 +164,11 @@ class ViewController: UIViewController {
 		if let highscore = userDefaults.value(forKey: "highscore") as? Int {
             // do something here when a highscore exists
             self.hiScore = highscore
-			if shouldShowAds && interstitial.isReady {
-				interstitial.present(fromRootViewController: self)
-			} else {
-				print("Ad wasn't ready")
-			}
+//			if shouldShowAds && interstitial.isReady {
+//				interstitial.present(fromRootViewController: self)
+//			} else {
+//				print("Ad wasn't ready")
+//			}
         }
         else {
             // no highscore exists
@@ -519,34 +517,34 @@ class ViewController: UIViewController {
             view.animate()
         }
     }
-	func createAndLoadInterstitial() -> GADInterstitial {
-        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-8165662050219478/9891912143")
-		interstitial.delegate = self
-		let request = GADRequest()
-		// Request test ads on devices you specify. Your test device ID is printed to the console when
-		// an ad request is made.
-//		request.testDevices = [ kGADSimulatorID ]
-		interstitial.load(request)
-//		interstitial.load(GADRequest())
-		return interstitial
-	}
+//	func createAndLoadInterstitial() -> GADInterstitial {
+//        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-8165662050219478/9891912143")
+//		interstitial.delegate = self
+//		let request = GADRequest()
+//		// Request test ads on devices you specify. Your test device ID is printed to the console when
+//		// an ad request is made.
+////		request.testDevices = [ kGADSimulatorID ]
+//		interstitial.load(request)
+////		interstitial.load(GADRequest())
+//		return interstitial
+//	}
 
     func getRemoteConfigure() {
-        let remoteConfig = RemoteConfig.remoteConfig()
-        let settings = RemoteConfigSettings()
-        settings.minimumFetchInterval = 0
-        remoteConfig.configSettings = settings
-        remoteConfig.fetch() { (status, error) -> Void in
-          if status == .success {
-            print("Config fetched!")
-            self.shouldShowAds = remoteConfig.configValue(forKey: "show_ads").stringValue == "true"
-            remoteConfig.activate() { (changed, error) in
-            }
-          } else {
-            print("Config not fetched")
-            print("Error: \(error?.localizedDescription ?? "No error available.")")
-          }
-        }
+//        let remoteConfig = RemoteConfig.remoteConfig()
+//        let settings = RemoteConfigSettings()
+//        settings.minimumFetchInterval = 0
+//        remoteConfig.configSettings = settings
+//        remoteConfig.fetch() { (status, error) -> Void in
+//          if status == .success {
+//            print("Config fetched!")
+//            self.shouldShowAds = remoteConfig.configValue(forKey: "show_ads").stringValue == "true"
+//            remoteConfig.activate() { (changed, error) in
+//            }
+//          } else {
+//            print("Config not fetched")
+//            print("Error: \(error?.localizedDescription ?? "No error available.")")
+//          }
+//        }
     }
 }
 // MARK: GameDelegate
@@ -1036,11 +1034,11 @@ extension ViewController: UITableViewDataSource {
 	}
 }
 
-extension ViewController: GADInterstitialDelegate {
-	func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-		interstitial = createAndLoadInterstitial()
-	}
-}
+//extension ViewController: GADInterstitialDelegate {
+//	func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+//		interstitial = createAndLoadInterstitial()
+//	}
+//}
 
 extension UIColor {
 	convenience init(red: Int, green: Int, blue: Int) {
