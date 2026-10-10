@@ -11,15 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Use Firebase library to configure APIs
-//        FirebaseApp.configure()
-        // Initialize Google Mobile Ads SDK
-//        GADMobileAds.sharedInstance().start(completionHandler: nil)
-//		GADMobileAds.configure(withApplicationID: "ca-app-pub-8165662050219478~6938445749")
-		
-		return true
-	}
+        // FirebaseApp.configure()
+        // GADMobileAds.sharedInstance().start(completionHandler: nil)
+
+        return true
+    }
+
+    func application(
+        _ application: UIApplication,
+        configurationForConnecting connectingSceneSession: UISceneSession,
+        options: UIScene.ConnectionOptions
+    ) -> UISceneConfiguration {
+
+        return UISceneConfiguration(
+            name: "Default Configuration",
+            sessionRole: connectingSceneSession.role
+        )
+    }
 }

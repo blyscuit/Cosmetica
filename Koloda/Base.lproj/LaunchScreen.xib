@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="25098" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25073"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,7 +20,7 @@
                             <rect key="frame" x="9.5" y="23" width="320" height="363"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cover0" translatesAutoresizingMaskIntoConstraints="NO" id="wdo-HF-0yA">
-                            <rect key="frame" x="17" y="0.0" width="305" height="382"/>
+                            <rect key="frame" x="19.5" y="0.0" width="300" height="382"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="7JH-Rc-1wX"/>
                             </constraints>
@@ -28,13 +28,14 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="wdo-HF-0yA" firstAttribute="width" secondItem="oue-em-4zM" secondAttribute="height" multiplier="100:121" id="2Wg-HL-RYG"/>
                         <constraint firstItem="oue-em-4zM" firstAttribute="height" secondItem="mjT-Ie-wax" secondAttribute="height" constant="-19" id="9Mx-z9-94K"/>
+                        <constraint firstAttribute="width" secondItem="mjT-Ie-wax" secondAttribute="height" multiplier="71:80" id="Qgn-Om-PxU"/>
                         <constraint firstItem="oue-em-4zM" firstAttribute="centerY" secondItem="mjT-Ie-wax" secondAttribute="centerY" constant="13.5" id="SXk-bR-Jxg"/>
                         <constraint firstAttribute="width" secondItem="mjT-Ie-wax" secondAttribute="height" multiplier="71:80" id="cO2-2H-mfk"/>
                         <constraint firstItem="oue-em-4zM" firstAttribute="width" secondItem="mjT-Ie-wax" secondAttribute="width" constant="-19" id="gQl-bY-Dmv"/>
                         <constraint firstItem="wdo-HF-0yA" firstAttribute="height" secondItem="mjT-Ie-wax" secondAttribute="height" id="hBP-t4-Xsu"/>
                         <constraint firstItem="wdo-HF-0yA" firstAttribute="centerY" secondItem="mjT-Ie-wax" secondAttribute="centerY" id="kGZ-en-mWS"/>
-                        <constraint firstItem="wdo-HF-0yA" firstAttribute="width" secondItem="mjT-Ie-wax" secondAttribute="width" multiplier="0.9" priority="750" id="myb-3a-OdL"/>
                         <constraint firstItem="oue-em-4zM" firstAttribute="centerX" secondItem="mjT-Ie-wax" secondAttribute="centerX" id="oVL-Cr-L4O"/>
                         <constraint firstItem="wdo-HF-0yA" firstAttribute="centerX" secondItem="mjT-Ie-wax" secondAttribute="centerX" id="s6K-g2-Tei"/>
                     </constraints>
@@ -50,6 +51,7 @@
                     <rect key="frame" x="96" y="55" width="183" height="97.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="tFT-5C-855" secondAttribute="height" multiplier="15:8" id="KK9-uh-eDD"/>
+                        <constraint firstAttribute="height" constant="97.5" id="VtJ-tA-dBW"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -58,12 +60,10 @@
                 <constraint firstItem="wA4-yB-Lf2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2Vk-Qx-S5Q"/>
                 <constraint firstItem="wA4-yB-Lf2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="7fF-xa-7DF"/>
                 <constraint firstItem="tFT-5C-855" firstAttribute="top" secondItem="wA4-yB-Lf2" secondAttribute="bottom" constant="-9" id="KcT-xl-4dg"/>
-                <constraint firstItem="mjT-Ie-wax" firstAttribute="width" secondItem="mjT-Ie-wax" secondAttribute="height" multiplier="71:80" id="Qgn-Om-PxU"/>
                 <constraint firstItem="mjT-Ie-wax" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="Tam-eE-9hR"/>
                 <constraint firstItem="mjT-Ie-wax" firstAttribute="top" secondItem="wA4-yB-Lf2" secondAttribute="bottom" constant="77" id="ULj-0d-Row"/>
                 <constraint firstItem="wA4-yB-Lf2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X2w-T4-17O"/>
                 <constraint firstItem="tFT-5C-855" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mMZ-CQ-vOL"/>
-                <constraint firstItem="tFT-5C-855" firstAttribute="width" secondItem="wdo-HF-0yA" secondAttribute="height" multiplier="80:167" id="r6P-E8-G30"/>
                 <constraint firstAttribute="trailing" secondItem="mjT-Ie-wax" secondAttribute="trailing" constant="18" id="vi3-wa-8Yi"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -73,6 +73,6 @@
     <resources>
         <image name="Cover0" width="300" height="304"/>
         <image name="Cover1" width="300" height="304"/>
-        <image name="logodark" width="525" height="669"/>
+        <image name="logodark" width="248" height="273"/>
     </resources>
 </document>
